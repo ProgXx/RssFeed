@@ -1,3 +1,5 @@
+// Create Feed Database to store the url created by the user
+// Can use this schema to retrieve the url previously entered by the user and retrieve the feeds.
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
