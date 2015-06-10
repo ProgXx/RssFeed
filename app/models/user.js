@@ -1,3 +1,4 @@
+//Creates User Database to store the information of the user(name,username,password)
 var mongoose = require("mongoose");
 
 var Schema  = mongoose.Schema;
