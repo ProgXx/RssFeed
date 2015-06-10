@@ -17,13 +17,13 @@
 			</div>
 			<div class="panel-body">
 				<form ng-submit="feed.createFeed()">
-					<input type="text" class="form-control input-lg" ng-model="feed.feedData.content" placeholder="Enter url" required>
+					<input type="text" class="form-control input-lg" ng-model="feed.feedData.content" placeholder="Enter url..." required/>
 				</form>
 			</div>
 		</div>
 	 </div>
 	 <div class="row">
- 		<div class="panel panel-success"  ng-repeat="each in feed.feeds">
+ 		<div class="panel panel-success"  ng-repeat="each in feed.feeds | reverse">
  			<div class="panel-heading">{{each.title}}</div>
  			<div class="panel-body" ng-repeat="entry in each.entries" >
  				<h5><a href="{{entry.link}}">{{entry.title}}</a></h5>                                        

@@ -111,6 +111,8 @@ module.exports = function(app,express,io){
 	//Send/Retrieve the feed url to/from the databse.
 	api.route('/')
 		.post(function(req,res){
+			console.log(req.body);
+			console.log(req.decoded.id," ",req.body.content);
 			var feed = new Feed({
 				creator: req.decoded.id,
 				content: req.body.content,
@@ -120,6 +122,7 @@ module.exports = function(app,express,io){
 					res.send(err);
 					return;
 				}
+				console.log(newFeed);
 				io.emit('feed',newFeed);
 				res.json({message:'New Feed created'});
 			});
@@ -131,6 +134,7 @@ module.exports = function(app,express,io){
 					res.send(err);
 					return;
 				}
+				console.log(feeds);
 				res.json(feeds);
 			});
 		});

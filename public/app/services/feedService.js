@@ -9,6 +9,7 @@ angular.module("feedService",[])
 	}
 	//Create the feed 
 	feedFactory.create = function(feedData){
+		console.log(feedData);
 		return $http.post('/api',feedData);
 	};
 	// Retrieve feed from the server.
