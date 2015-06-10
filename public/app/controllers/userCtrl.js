@@ -1,3 +1,4 @@
+//Defines UserController
 angular.module('userCtrl',['userService'])
 
 .controller("UserController",function(User){
@@ -11,6 +12,7 @@ angular.module('userCtrl',['userService'])
 
 .controller('UserCreateController',function(User,$location,$window){
 	var vm = this;
+	// Create the user and redirect to the index page.
 	vm.signupUser = function(){
 		vm.message = '';
 		User.create(vm.userData)
