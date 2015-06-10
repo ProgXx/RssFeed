@@ -32,7 +32,7 @@ angular.module('feedCtrl',['feedService'])
 	socketio.on('feed',function(data){
 		console.log(data.content);
 		vm.loadFeed(data.content);
-	})
+	});
 	
 	//Load the feed from the url provided.
 	vm.loadFeed = function(url){
