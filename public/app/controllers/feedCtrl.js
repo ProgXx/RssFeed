@@ -5,7 +5,6 @@ angular.module('feedCtrl',['feedService'])
 
 	var vm = this;
 	vm.feeds = [];
-	vm.feedData = [];
 	//Retrieve all the feed from the databse.
 	Feed.allFeed().success(function(data){
 		console.log(data);
@@ -37,6 +36,7 @@ angular.module('feedCtrl',['feedService'])
 	//Load the feed from the url provided.
 	vm.loadFeed = function(url){
 		Feed.parseFeed(url).then(function(res){
+			console.log(url);
 			if(res.data.responseData){
 				vm.feeds.push({
 					title: res.data.responseData.feed.title,

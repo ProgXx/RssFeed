@@ -3,7 +3,7 @@
 //port - port for the server
 //secret key -  Any secret key to encrypt the password.
 module.exports = {
-	"database": "mongodb://admin:admin@ds061208.mongolab.com:61208/rssfeed",
+	"database": "mongodb://admin:admin@ds043062.mongolab.com:43062/rssfeed",
 	"port": process.env.PORT || 3000,
 	"secretKey": "YourSecretKey"
 }
