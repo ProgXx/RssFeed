@@ -1,3 +1,4 @@
+//Defines controlled for the feed. 
 angular.module('feedCtrl',['feedService'])
 
 .controller('FeedController',function(Feed,socketio){
@@ -5,12 +6,13 @@ angular.module('feedCtrl',['feedService'])
 	var vm = this;
 	vm.feeds = [];
 	vm.feedData = [];
+	//Retrieve all the feed from the databse.
 	Feed.allFeed().success(function(data){
 		angular.forEach(data,function(key,value){
 			vm.loadFeed(key.content)
 		});
 	});
-
+	//Save the url and retrieve the feed from the url provided by the user.
 	vm.createFeed = function(){
 		vm.processing = true;
 		vm.message = '';
@@ -21,11 +23,13 @@ angular.module('feedCtrl',['feedService'])
 				vm.loadFeed(data.content);
 			});
 	};
-
+	
+	//listen for the updates in the feed database.
 	socketio.on('feed',function(data){
 		vm.loadFeed(data.content);
 	})
-
+	
+	//Load the feed from the url provided.
 	vm.loadFeed = function(url){
 		Feed.parseFeed(url).then(function(res){
 			vm.feeds.push({
