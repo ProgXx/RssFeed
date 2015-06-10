@@ -1,3 +1,4 @@
+//Directive to reverse the list of items .
 angular.module('reverseDirections',[])
 
 .filter('reverse',function(){
